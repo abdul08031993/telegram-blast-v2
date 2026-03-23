@@ -1,0 +1,72 @@
+{
+  "name": "teleblast",
+  "version": "1.0.0",
+  "description": "Telegram Blast Desktop Application",
+  "main": "main.js",
+  "author": "TeleBlast",
+  "license": "ISC",
+  "scripts": {
+    "start": "electron . --no-sandbox",
+    "dev": "electron . --dev --no-sandbox",
+    "postinstall": "electron-builder install-app-deps",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "publish": "electron-builder build --win --mac --linux -p always"
+  },
+  "keywords": [
+    "telegram",
+    "blast",
+    "desktop"
+  ],
+  "dependencies": {
+    "axios": "^1.13.6",
+    "better-sqlite3": "^11.10.0",
+    "big-integer": "^1.6.52",
+    "electron-store": "^8.2.0",
+    "input": "^1.0.1",
+    "node-machine-id": "^1.1.12",
+    "telegram": "^2.26.22"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.3",
+    "electron": "^35.1.4",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.teleblast.app",
+    "productName": "TeleBlast",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist/*",
+      "!.github/*"
+    ],
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "mac": {
+      "icon": "assets/icon.icns",
+      "target": [
+        "dmg"
+      ]
+    },
+    "linux": {
+      "icon": "assets/icon.png",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "USERNAME_GITHUB_KAMU",
+      "repo": "NAMA_REPO_KAMU"
+    }
+  }
+}
