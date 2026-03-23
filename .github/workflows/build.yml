@@ -2,24 +2,23 @@ name: Build TeleBlast
 on:
   push:
     tags:
-      - 'v*' # Build akan jalan setiap kamu buat tag baru, misal v1.0.0
+      - 'v*'
 
 jobs:
   release:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        # Menjalankan 3 sistem operasi sekaligus
         os: [windows-latest, ubuntu-latest, macos-latest]
 
     steps:
       - name: Check out git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Perbarui dari v3 ke v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4 # Perbarui dari v3 ke v4
         with:
-          node-version: 22
+          node-version: 22 # Tetap gunakan Node 22 untuk Electron kamu
 
       - name: Install dependencies
         run: npm install
@@ -27,6 +26,5 @@ jobs:
       - name: Build Electron App
         uses: samuelmeuli/action-electron-builder@v1
         with:
-          # GitHub Token otomatis untuk membuat Release
           github_token: ${{ secrets.GITHUB_TOKEN }}
           release: true
