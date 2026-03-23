@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Telegram Blast Desktop Application",
   "main": "main.js",
-  "author": "TeleBlast",
+  "author": "TeleBlast <abdul08031993@gmail.com>", 
   "license": "ISC",
   "scripts": {
     "start": "electron . --no-sandbox",
@@ -58,15 +58,16 @@
     },
     "linux": {
       "icon": "assets/icon.png",
+      "maintainer": "abdul08031993@gmail.com",
       "target": [
         "AppImage",
         "deb"
       ]
     },
     "publish": {
-    "provider": "github",
-    "owner": "abdul08031993",
-    "repo": "telegram-blast-v2"
+      "provider": "github",
+      "owner": "abdul08031993",
+      "repo": "telegram-blast-v2"
     }
   }
 }
