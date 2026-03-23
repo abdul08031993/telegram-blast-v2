@@ -2,29 +2,40 @@ name: Build TeleBlast
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*' # Akan berjalan otomatis setiap kamu push tag baru (v1.0.5, dll)
 
 jobs:
   release:
     runs-on: ${{ matrix.os }}
+    
+    # PENTING: Memberikan izin tulis agar GitHub bisa mengunggah file ke menu Release
+    permissions:
+      contents: write
+
     strategy:
       matrix:
+        # Menjalankan build untuk 3 OS sekaligus
         os: [windows-latest, ubuntu-latest, macos-latest]
 
     steps:
       - name: Check out git repository
-        uses: actions/checkout@v4 # Perbarui dari v3 ke v4
+        uses: actions/checkout@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v4 # Perbarui dari v3 ke v4
+        uses: actions/setup-node@v4
         with:
-          node-version: 22 # Tetap gunakan Node 22 untuk Electron kamu
+          node-version: 22 # Menggunakan Node 22 agar cocok dengan Electron terbaru
 
       - name: Install dependencies
         run: npm install
 
+      # Rebuild native dependencies (Penting untuk better-sqlite3)
+      - name: Rebuild native modules
+        run: npm run postinstall
+
       - name: Build Electron App
         uses: samuelmeuli/action-electron-builder@v1
         with:
+          # Token otomatis dari GitHub untuk membuat Release
           github_token: ${{ secrets.GITHUB_TOKEN }}
           release: true
