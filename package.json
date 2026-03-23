@@ -64,9 +64,9 @@
       ]
     },
     "publish": {
-      "provider": "github",
-      "owner": "USERNAME_GITHUB_KAMU",
-      "repo": "NAMA_REPO_KAMU"
+    "provider": "github",
+    "owner": "abdul08031993",
+    "repo": "telegram-blast-v2"
     }
   }
 }
