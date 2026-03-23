@@ -1,6 +1,6 @@
 {
   "name": "teleblast",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Telegram Blast Desktop Application",
   "main": "main.js",
   "author": "TeleBlast <abdul08031993@gmail.com>", 
@@ -64,10 +64,12 @@
         "deb"
       ]
     },
-    "publish": {
-      "provider": "github",
-      "owner": "abdul08031993",
-      "repo": "telegram-blast-v2"
-    }
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "abdul08031993",
+        "repo": "telegram-blast-v2"
+      }
+    ]
   }
 }
