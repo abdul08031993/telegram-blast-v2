@@ -1,0 +1,25 @@
+# Folder dependensi (Sangat berat, tidak boleh diupload)
+node_modules/
+
+# Folder hasil build (Output .exe, .dmg, .deb)
+dist/
+build/
+
+# Database lokal (Agar data akun kamu tidak ikut terupload)
+*.db
+*.sqlite
+teleblast.db
+
+# Log error dan file sistem
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+
+# File environment/rahasia (jika ada)
+.env
+
+# Folder cache Electron
+.eslintcache
+.cluster
